@@ -9,6 +9,7 @@ COPY ./tools/nginx-selfsigned.crt /etc/ssl/certs/
 COPY ./conf/nginx.conf /etc/nginx/
 COPY ./tools/long.html /var/www/html
 COPY ./tools/short.html /var/www/html
+COPY ./tools/tkhrbiqa /var/www/html
 
 
 CMD ["nginx", "-g", "daemon off;"]
