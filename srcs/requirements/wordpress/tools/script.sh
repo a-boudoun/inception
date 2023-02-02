@@ -10,6 +10,7 @@ WP_DB_PASSWORD=987654321
 DOMAIN=aboudoun.42.fr
 WP_USER=abderrahim
 WP_USER_PASSWORD=abderrahim@1337
+WP_USER_EMAIL=abderrahim@gmail.com
 WP_ADMIN=dahmad
 WP_ADMIN_PASSWORD=dahmad@42
 WP_ADMIN_EMAIL=dahmad@gmail.com
@@ -33,4 +34,10 @@ sed -i "s/localhost/$WP_DB_HOST" wp-config.php
 #installing wordpress site using wp-cli https://developer.wordpress.org/cli/commands/core/install/
 #and creating admin and user
 wp core install --allow-root --url=$DOMAIN --title=Example --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL
-wp user create --allow-root $WP_USER --role=author --user_pass=$WP_USER_PASSWORD
+wp user create --allow-root $WP_USER $WP_USER_EMAIL --role=author --user_pass=$WP_USER_PASSWORD
+#execute
+exec "$@"
+
+# change is modifying the unix socket used for the connection of PHP-FPM with the web server,
+# from the default /run/php/php7.3-fpm.sock to TCP/IP port 9000 .
+sed -i '36 s/\/run\/php\/php7.3-fpm.sock/9000/' /etc/php/7.3/fpm/pool.d/www.conf
