@@ -6,7 +6,7 @@ RUN apt update -y\
 COPY ./tools/script.sh .
 RUN chmod 777 script.sh
 
-# ENTRYPOINT [ "/bin/sh" ]
-ENTRYPOINT [ "script.sh" ]
+ENTRYPOINT [ "/bin/sh" ]
+# ENTRYPOINT [ "script.sh" ]
 
-CMD ["/usr/sbin/php-fpm7.3", "-F"]
+# CMD ["/usr/sbin/php-fpm7.3", "-F"]

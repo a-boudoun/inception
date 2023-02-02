@@ -7,12 +7,22 @@ WP_DB_PASSWORD=987654321
 
 service mysql start
 
-echo "CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;
-CREATE USER 'root'@'%' IDENTIFIED BY '$ROOT_PASSWORD';
-CREATE USER '$WP_DB_USER'@'%' IDENTIFIED BY '$WP_DB_PASSWORD';
-GRANT ALL ON $WP_DB_NAME.* TO '$WP_DB_USER'@'%';
-GRANT ALL ON *.* TO 'root'@'%';
-FLUSH PRIVILEGES;" > database.sql
+echo "CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;" > database.sql
+
+#Creates a user named root with the password 123456789 and grants them access from any host
+echo "CREATE USER 'root'@'%' IDENTIFIED BY '$ROOT_PASSWORD';" >> database.sql
+
+#Creates a user named wpuser with the password 123456789 and grants them access from any host
+echo "CREATE USER '$WP_DB_USER'@'%' IDENTIFIED BY '$WP_DB_PASSWORD';" >> database.sql
+
+#Grants all privileges on the wpdb database to the wpuser use
+echo "GRANT ALL ON $WP_DB_NAME.* TO '$WP_DB_USER'@'%';" >> database.sql
+
+#Grants all privileges on all databases to the root user.
+echo "GRANT ALL ON *.* TO 'root'@'%';" >> database.sql
+
+#reloads the privileges from the grant tables in the MySQL database
+echo "FLUSH PRIVILEGES;" >> database.sql
 
 mysql -u root -p$ROOT_PASSWORD < database.sql
 
