@@ -1,10 +1,5 @@
 #!/bin/bash
 
-WP_DB_NAME=wpdb
-ROOT_PASSWORD=123456789
-WP_DB_USER=wpuser
-WP_DB_PASSWORD=987654321
-
 service mysql start
 
 echo "CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;" > database.sql

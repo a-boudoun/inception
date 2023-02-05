@@ -1,19 +1,5 @@
 #!/bin/bash
 
-#MARIADB
-WP_DB_HOST=mariadb
-WP_DB_NAME=wpdb
-ROOT_PASSWORD=123456789
-WP_DB_USER=wpuser
-WP_DB_PASSWORD=987654321
-#wordpress
-DOMAIN=aboudoun.42.fr
-WP_USER=abderrahim
-WP_USER_PASSWORD=abderrahim@1337
-WP_USER_EMAIL=abderrahim@gmail.com
-WP_ADMIN=dahmad
-WP_ADMIN_PASSWORD=dahmad@42
-WP_ADMIN_EMAIL=dahmad@gmail.com
 # how install wordpress https://wordpress.org/documentation/article/how-to-install-wordpress/#step-3-set-up-wp-config-php
 
 #installing wordpress int the the root directory for web server
