@@ -9,7 +9,7 @@ build:
 
 clean:
 	docker-compose -f ./srcs/docker-compose.yml down -v --rmi all
-	# docker rmi -f $$(docker images -aq)
+	docker rmi -f $$(docker images -aq)
 	sudo rm -rf /home/abderrahim/data/wp_files
 	sudo rm -rf /home/abderrahim/data/wp_database
 
