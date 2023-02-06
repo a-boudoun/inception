@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 networks:
   inception:
@@ -9,13 +9,13 @@ volumes:
   wordpress:
     name: wp_files
     driver_opts:
-      device: /home/aboudoun/data/wp_files
+      device: /home/abderrahim/data/wp_files
       o: bind
       type: none
   mariadb:
     name: wp_database
     driver_opts:
-      device: /home/aboudoun/data/wp_database
+      device: /home/abderrahim/data/wp_database
       o: bind
       type: none
 
@@ -23,7 +23,7 @@ services:
   mariadb:
     env_file: .env
     build: ./requirements/mariadb
-    image: mariadb
+    image: mariadb:1337
     container_name: mariadb
     networks:
       - inception
@@ -34,7 +34,7 @@ services:
   wordpress:
     env_file: .env
     build: ./requirements/wordpress
-    image: wordpress
+    image: wordpress:1337
     container_name: wordpress
     networks:
       - inception
@@ -48,7 +48,7 @@ services:
   nginx:
     env_file: .env
     build: ./requirements/nginx
-    image: nginx
+    image: nginx:1337
     container_name: nginx
     networks:
       - inception
