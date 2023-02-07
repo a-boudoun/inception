@@ -4,7 +4,7 @@ service mysql start
 
 echo "CREATE DATABASE IF NOT EXISTS $WP_DB_NAME;" > database.sql
 
-#Creates a user named root with the password 123456789 and grants them access from any host
+#set root with the password 123456789
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$ROOT_PASSWORD';" >> database.sql
 
 #Creates a user named wpuser with the password 123456789 and grants them access from any host

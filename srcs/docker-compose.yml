@@ -9,13 +9,13 @@ volumes:
   wordpress:
     name: wp_files
     driver_opts:
-      device: /home/abderrahim/data/wp_files
+      device: /home/aboudoun/data/wp_files
       o: bind
       type: none
   mariadb:
     name: wp_database
     driver_opts:
-      device: /home/abderrahim/data/wp_database
+      device: /home/aboudoun/data/wp_database
       o: bind
       type: none
 
