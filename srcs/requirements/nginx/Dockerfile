@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update -y \
-	&& apt-get install nginx openssl -y;
+	&& apt-get install nginx -y;
 
 COPY ./tools/selfsigned /etc/ssl/
 
