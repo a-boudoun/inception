@@ -29,7 +29,7 @@ services:
       - inception
     volumes:
       - mariadb:/var/lib/mysql
-    restart: on-failure
+    restart: always
 
   wordpress:
     env_file: .env
@@ -42,7 +42,7 @@ services:
       - wordpress:/var/www/html
     depends_on:
       - mariadb
-    restart: on-failure
+    restart: always
 
 
   nginx:
@@ -58,7 +58,7 @@ services:
       - wordpress:/var/www/html
     depends_on:
       - wordpress
-    restart: on-failure
+    restart: always
 
 
 
