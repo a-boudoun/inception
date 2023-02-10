@@ -2,7 +2,7 @@
 
 # how install wordpress https://wordpress.org/documentation/article/how-to-install-wordpress/#step-3-set-up-wp-config-php
 
-#installing wordpress int the the root directory for web server
+#installing wordpress int the the default root directory for web server
 mkdir -p /var/www/html
 cd /var/www/html
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
