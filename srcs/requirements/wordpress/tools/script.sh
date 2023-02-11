@@ -23,7 +23,7 @@ wp core install --allow-root --url=$DOMAIN --title=Example --admin_user=$WP_ADMI
 wp user create --allow-root $WP_USER $WP_USER_EMAIL --role=author --user_pass=$WP_USER_PASSWORD
 
 # change /run/php/php7.3-fpm.sock to TCP/IP port 9000 .
-sed -i "36 s/\/run\/php\/php7.3-fpm.sock/9000/" /etc/php/7.3/fpm/pool.d/www.conf
+sed -i "s/\/run\/php\/php7.3-fpm.sock/9000/" /etc/php/7.3/fpm/pool.d/www.conf
 #execute /usr/sbin/php-fpm7.3 -F to run int he foreground
 mkdir /run/php
 exec "$@"
