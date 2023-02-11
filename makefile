@@ -8,9 +8,11 @@ build:
 
 
 clean:
-	docker-compose -f ./srcs/docker-compose.yml down -v --rmi all
-	docker rmi -f $$(docker images -aq)
+	docker-compose -f ./srcs/docker-compose.yml down -v
 	sudo rm -rf /home/aboudoun/data/wp_files
 	sudo rm -rf /home/aboudoun/data/wp_database
+	
+fclean:
+	docker rmi -f $$(docker images -aq)
 
-re : clean all
+.PHONY: all clean build fclean
